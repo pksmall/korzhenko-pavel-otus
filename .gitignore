@@ -105,3 +105,5 @@ dist
 
 #VS
 .vs/
+#idea
+.idea/

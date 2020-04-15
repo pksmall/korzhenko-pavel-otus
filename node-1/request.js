@@ -20,6 +20,24 @@ const argv = require('yargs')
 if (argv.p) {
     argv.a = false;
     console.log("Do consistent jobs");
+    let i = 1;
+    const gourl = url => http.get(url, res => {
+        res.setEncoding("utf8");
+        let body = "";
+        res.on("data", data => {
+            body += data;
+        });
+        res.on("end", () => {
+            console.log(body);
+            if(i < argv.n) {
+                gourl(url);
+                i++;
+            }
+        });
+    });
+    gourl(url);
+} else if (argv.a) {
+    console.log("Do parrallel jobs");
     for(let i = 0; i < argv.n; i++) {
         http.get(url, res => {
             res.setEncoding("utf8");
@@ -32,18 +50,4 @@ if (argv.p) {
             });
         });
     }
-} else if (argv.a) {
-    console.log("Do parrallel jobs");
-    const getData = async url => {
-        try {
-            for(let i = 0; i < argv.n; i++) {
-                await fetch(url)
-                    .then(res => res.text())
-                    .then(body => console.log(body));
-            }
-        } catch (error) {
-            console.log(error);
-        }
-    };
-    getData(url);
 }

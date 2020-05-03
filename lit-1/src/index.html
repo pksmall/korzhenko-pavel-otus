@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head lang='en'>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width'>
+    <title>lit-element-build-rollup</title>
+    <!-- Force polyfills for testing -->
+    <!--
+    <script>
+      window.ShadyDOM = {
+        force: true
+      };
+      if (window.customElements) customElements.forcePolyfill = true;
+    </script>
+    -->
+    <script src='app.js'></script>
+</head>
+<body>
+<!--  myProp="again" -->
+<my-element message="Jaba Fet"></my-element>
+<script src="webcomponents-loader.js"></script>
+<ul>
+    <li></li>
+    <li></li>
+    <ul>
+        <li></li>
+        <li></li>
+    </ul>
+</ul>
+</body>
+</html>

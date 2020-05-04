@@ -1,4 +1,6 @@
 import {LitElement, property, css, html } from 'lit-element';
+import {jsonData} from "./my-tree-raw";
+import "./my-root";
 
 class MyElement extends LitElement {
     @property({type: String}) myProp = 'stuff';

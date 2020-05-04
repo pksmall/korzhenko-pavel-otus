@@ -3,7 +3,7 @@
 <head lang='en'>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width'>
-    <title>lit-element-build-rollup</title>
+    <title>my-tree and lit-html tests</title>
     <!-- Force polyfills for testing -->
     <!--
     <script>
@@ -16,16 +16,17 @@
     <script src='app.js'></script>
 </head>
 <body>
-<!--  myProp="again" -->
+<script>
+    console.log(typeof jsonData);
+</script>
+
 <my-element message="Jaba Fet"></my-element>
+
+<div>
+    <my-root></my-root>
+</div>
+
 <script src="webcomponents-loader.js"></script>
-<ul>
-    <li></li>
-    <li></li>
-    <ul>
-        <li></li>
-        <li></li>
-    </ul>
-</ul>
+
 </body>
 </html>

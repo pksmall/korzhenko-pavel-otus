@@ -6,8 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "copyindex-win": "xcopy /i /q src\\index.html build",
+    "rmbuild-win": "if exist build rmdir /s /q build",
+    "mkdir-win": "if not exist build mkdir build",
     "copywc-win": "xcopy /i /s /q node_modules\\@webcomponents\\webcomponentsjs\\bundles build && xcopy /i /q node_modules\\@webcomponents\\webcomponentsjs\\webcomponents-loader.js build",
-    "build-win": "rmdir /s /q build && mkdir build && npm run copyindex-win && npm run copywc-win && rollup -c",
+    "build-win": "npm run rmbuild-win &&  npm run mkdir-win && npm run copyindex-win && npm run copywc-win && rollup -c",
     "copyindex": "cp src/index.html build",
     "copywc": "cp -r node_modules/@webcomponents/webcomponentsjs/bundles build && cp node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js build",
     "build": "rm -rf build && mkdir build && npm run copyindex && npm run copywc && rollup -c",

@@ -23,8 +23,12 @@
 <my-element message="Jaba Fet"></my-element>
 
 <div>
-    <my-root></my-root>
+    <my-tree ></my-tree>
 </div>
+<script>
+    let mytree = document.querySelector("my-tree");
+    mytree.setAttribute("theData", JSON.stringify(jsonData));
+</script>
 
 <script src="webcomponents-loader.js"></script>
 

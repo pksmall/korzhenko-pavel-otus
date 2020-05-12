@@ -9,9 +9,14 @@ class MyTree extends LitElement {
                 reflect: true,
                 converter(value) {
                     console.log('theData\'s converter.');
-                    console.log('Processing:', value, typeof(value));
-
-                    let retVal = JSON.parse(value);
+                    let retVal = "";
+                    if (typeof value === "object") {
+                        console.log('Processing:', value, typeof(value));
+                        retVal = JSON.parse(JSON.stringify(value));
+                    } else {
+                        console.log('Processing:', value, typeof(value));
+                        retVal = JSON.parse(value);
+                    }
                     console.log('Returning:', retVal, typeof(retVal));
                     return retVal;
                 }

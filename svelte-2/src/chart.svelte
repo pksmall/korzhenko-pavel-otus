@@ -3,9 +3,11 @@
 
     export let data;
     export let labels;
+    let myChart;
 
     function createChart() {
         let ctx = document.getElementById('myChart');
+        if (myChart) myChart.destroy();
         let colors = [];
         let highlight = [];
         labels.forEach((item) => {
@@ -18,7 +20,7 @@
             colors.push(c);
             highlight.push(h);
         });
-        var myChart = new Chart(ctx, {
+        myChart = new Chart(ctx, {
             type: 'doughnut',
             data: {
                 datasets: [{

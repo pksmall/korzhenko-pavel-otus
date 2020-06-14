@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "app": "node --max-old-space-size=5 app.js data.txt output.txt 100000",
+    "app": "node --max-old-space-size=50 app.js data.txt output.txt 1000000",
     "gen": "node get-data-file.js"
   },
   "keywords": [

@@ -4,7 +4,7 @@
   "description": "hw#9 from otus",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --detectOpenHandles  --coverage ",
     "src": "nodemon --watch src src/index.js"
   },
   "keywords": [],
@@ -15,10 +15,12 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "helmet": "^3.23.1",
+    "jest": "^26.0.1",
     "mongodb": "^3.5.9",
     "mongodb-memory-server": "^6.6.1",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.4",
-    "rss-parser": "^3.8.0"
+    "rss-parser": "^3.8.0",
+    "supertest": "^4.0.2"
   }
 }

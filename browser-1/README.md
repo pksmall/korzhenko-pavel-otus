@@ -13,3 +13,17 @@ $0 // HTMLElement
 getPath($0) // => "body div.someclass ul li:first-child"
 ```
 
+Ипользуется проект на `node` c `express`.
+
+Клонируем и устанавливаем зависемости:
+```bash
+npm install
+```
+
+Запускаем:
+```bash
+node bin/www
+```
+
+Идем броузером на http://localhost:3000/ и смотрим в консоль на выполенения функции `getPath`.
+Сам файл лежит в `public/javascripts/getpath.js`.

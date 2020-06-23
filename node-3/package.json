@@ -1,0 +1,16 @@
+{
+  "name": "node-3",
+  "version": "1.0.0",
+  "description": "hw#8 from otus",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "app": "node --max-old-space-size=50 app.js data.txt output.txt 1000000",
+    "gen": "node get-data-file.js"
+  },
+  "keywords": [
+    "node-3"
+  ],
+  "author": "pavel korzhenko",
+  "license": "ISC"
+}

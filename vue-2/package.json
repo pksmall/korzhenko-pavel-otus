@@ -1,8 +1,8 @@
 {
   "author": "Pavel Korzhenko",
-  "name": "vue-1",
+  "name": "vue-2",
   "version": "1.0.0",
-  "description": "Homework #10",
+  "description": "Homework #11",
   "private": true,
   "scripts": {
     "start": "vue-cli-service serve",

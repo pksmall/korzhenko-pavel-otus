@@ -16,9 +16,7 @@ interface SearchFormState {
 class SearchForm extends Component<SearchFormProps, SearchFormState> {
     constructor(props: SearchFormProps) {
         super(props);
-        this.state = {
-            input: this.props.city
-        };
+        this.state = { input: this.props.city };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 

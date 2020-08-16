@@ -26,16 +26,29 @@ export const loadCurrentWeather = async (
     city: string
 ): Promise<CurrentWeather> => {
     const response = await loadWeather(city, currentWeatherApiUrlWithId);
-    return {
-        city,
-        temperature: response ? response.main.temp : null,
-        pressure: response ? response.main.pressure : null,
-        humidity: response ? response.main.humidity : null,
-        wind: {
-            speed: response ? response.wind.speed : null,
-            degrees: response ? response.wind.deg : null
-        }
-    };
+    if (response) {
+        return {
+            city,
+            temperature: response ? response.main.temp : null,
+            pressure: response ? response.main.pressure : null,
+            humidity: response ? response.main.humidity : null,
+            wind: {
+                speed: response ? response.wind.speed : null,
+                degrees: response ? response.wind.deg : null
+            }
+        };
+    } else {
+        return {
+            city,
+            temperature: null,
+            pressure: null,
+            humidity: null,
+            wind: {
+                speed: null,
+                degrees: null
+            }
+        };
+    }
 };
 
 export const loadWeatherForecast = async (

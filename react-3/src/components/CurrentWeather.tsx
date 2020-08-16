@@ -33,21 +33,27 @@ class CurrentCityWeather extends Component<CurrentCityWeatherProps, CurrentCityW
     }
 
     componentDidMount() {
+        console.log("Did Mount");
         this.updateWeather();
     }
 
-    componentDidUpdate() {
-        this.updateWeather();
+    componentDidUpdate(prevProps: CurrentCityWeatherProps) {
+        if (this.props.city !== prevProps.city) {
+            console.log("Did Update");
+            this.updateWeather();
+        }
     }
 
     async updateWeather() {
-        const { city } = this.props;
+        const {city} = this.props;
         if (city) {
+            console.log("Current weather " + city);
             this.setState({
-                weather: await loadCurrentWeather(city)
+                  weather: await loadCurrentWeather(city)
             });
         }
     }
+
 
     render() {
         const { weather } = this.state;

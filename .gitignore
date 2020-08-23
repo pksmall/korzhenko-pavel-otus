@@ -104,3 +104,6 @@ dist
 .tern-port
 #InteliJea
 .idea/
+#package-lock.json
+*/package-lock.json
+*/build/

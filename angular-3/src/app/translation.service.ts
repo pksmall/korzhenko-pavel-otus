@@ -22,29 +22,30 @@ export class TranslationService {
             "x-rapidapi-host": "google-translate1.p.rapidapi.com",
             "x-rapidapi-key": this.apiKey,
             "accept-encoding": "application/gzip",
-            'content-type': 'application/x-www-form-urlencoded',
+            "content-type": "application/x-www-form-urlencoded",
             "useQueryString": "true"
         }),
     };
     constructor(private http: HttpClient) {}
 
+
     translate(
         word: string,
         translationDirection: TranslationDirection
     ): Observable<WordPair> {
+        let body = new URLSearchParams();
+        body.set('source', translationDirection.split('-')[0]);
+        body.set('q', word);
+        body.set('target', translationDirection.split('-')[1]);
         return of(word).pipe(
             switchMap((word) =>
                 this.http.post(
                   "https://google-translate1.p.rapidapi.com/language/translate/v2",
-                  {
-                    "source": translationDirection.split('-')[0],
-                    "q": word,
-                    "target": translationDirection.split('-')[1]
-                  },
+                  body.toString(),
                   this.httpOptions
                 )
             ),
-            retry(2),
+            retry(1),
             map((response: ApiResponse) => {
                 const languages: Language[] = translationDirectionToLanguagePair(
                     translationDirection
@@ -56,7 +57,7 @@ export class TranslationService {
                         language: languages[0],
                     },
                     translation: {
-                        spelling: response.text[0],
+                        spelling: response.data.translations[0].translatedText,
                         language: languages[1],
                     },
                 };

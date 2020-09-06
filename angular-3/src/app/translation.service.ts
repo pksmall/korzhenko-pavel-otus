@@ -45,7 +45,6 @@ export class TranslationService {
                   this.httpOptions
                 )
             ),
-            retry(1),
             map((response: ApiResponse) => {
                 const languages: Language[] = translationDirectionToLanguagePair(
                     translationDirection
